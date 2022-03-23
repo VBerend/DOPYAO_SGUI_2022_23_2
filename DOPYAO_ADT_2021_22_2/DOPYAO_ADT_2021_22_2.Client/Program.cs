@@ -6,7 +6,7 @@ namespace DOPYAO_ADT_2021_22_2.Client
 	{
 		static void Main(string[] args)
 		{
-			Console.WriteLine("Hello World!");
+			//Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename = "|DataDirectory|\Database.mdf"; Integrated Security = True; MultipleActiveResultSets = True
 		}
 	}
 }

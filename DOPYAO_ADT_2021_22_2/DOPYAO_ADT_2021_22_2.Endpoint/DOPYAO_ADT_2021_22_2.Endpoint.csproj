@@ -4,4 +4,11 @@
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\DOPYAO_ADT_2021_22_2.Data\DOPYAO_ADT_2021_22_2.Data.csproj" />
+    <ProjectReference Include="..\DOPYAO_ADT_2021_22_2.Logic\DOPYAO_ADT_2021_22_2.Logic.csproj" />
+    <ProjectReference Include="..\DOPYAO_ADT_2021_22_2.Models\DOPYAO_ADT_2021_22_2.Models.csproj" />
+    <ProjectReference Include="..\DOPYAO_ADT_2021_22_2.Repository\DOPYAO_ADT_2021_22_2.Repository.csproj" />
+  </ItemGroup>
+
 </Project>
