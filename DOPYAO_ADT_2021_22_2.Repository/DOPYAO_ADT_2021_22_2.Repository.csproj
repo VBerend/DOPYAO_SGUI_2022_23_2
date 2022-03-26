@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\DOPYAO_ADT_2021_22_2.Data\DOPYAO_ADT_2021_22_2.Data.csproj" />
+    <ProjectReference Include="..\DOPYAO_ADT_2021_22_2.Models\DOPYAO_ADT_2021_22_2.Models.csproj" />
+  </ItemGroup>
+
+</Project>
