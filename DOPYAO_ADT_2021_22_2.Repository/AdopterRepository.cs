@@ -2,7 +2,7 @@
 
 namespace DOPYAO_ADT_2021_22_2.Repository
 {
-	public class Class1
+	public class AdopterRepository
 	{
 	}
 }
