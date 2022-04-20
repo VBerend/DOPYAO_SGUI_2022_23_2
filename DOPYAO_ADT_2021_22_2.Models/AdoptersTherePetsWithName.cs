@@ -6,7 +6,18 @@ using System.Threading.Tasks;
 
 namespace DOPYAO_ADT_2021_22_2.Models
 {
-	class AdoptersTherePetsWithName
+	public class AdoptersTherePetsWithName
 	{
-	}
+        public int Id { get; set; }
+
+        public string Name { get; set; }
+
+        public string AnimalName { get; set; }
+
+
+        public override string ToString()
+        {
+            return $"{Name} has a pet named {AnimalName}.";
+        }
+    }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DOPYAO_ADT_2021_22_2.Logic
 {
-	class ShelterLogic
+	class ShelterLogic : IShelterLogic
 	{
 	}
 }
