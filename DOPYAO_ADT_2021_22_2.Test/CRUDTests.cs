@@ -32,6 +32,17 @@ namespace DOPYAO_ADT_2021_22_2.Test
             mockedAnimalRepo.Verify(repo => repo.Insert(It.IsAny<Animal>()), Times.Once);
         }
 
+        [Test]
+        public void TestCreateShelter()
+        {
+            Mock<IShelterRepository> mockedShelterRepo = new Mock<IShelterRepository>(MockBehavior.Loose);
+            Mock<IAnimalRepository> mockedAnimalRepo = new Mock<IAnimalRepository>(MockBehavior.Loose);
+            ShelterLogic shelterLogic = new ShelterLogic(mockedShelterRepo.Object, mockedAnimalRepo.Object);
+            mockedShelterRepo.Setup(repo => repo.Insert(It.IsAny<Shelter>()));
+            shelterLogic.InsertNewShelter("Homeless Kitty Network", "Csudapest", "Other Street 19.");
+            mockedShelterRepo.Verify(repo => repo.Insert(It.IsAny<Shelter>()), Times.Once);
+        }
+
         #endregion
     }
 }

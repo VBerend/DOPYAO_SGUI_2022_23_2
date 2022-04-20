@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DOPYAO_ADT_2021_22_2.Logic
 {
-	class ShelterLogic : IShelterLogic
+	public class ShelterLogic : IShelterLogic
 	{
         IShelterRepository shelterRepo;
         IAnimalRepository animalRepo;
