@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace DOPYAO_ADT_2021_22_2.Logic
 {
-	internal interface IAnimalLogic
+	public interface IAnimalLogic
 	{
 		void ChangeAnimalName(int id, string newName);
 

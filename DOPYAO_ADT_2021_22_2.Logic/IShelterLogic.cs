@@ -1,6 +1,23 @@
-﻿namespace DOPYAO_ADT_2021_22_2.Logic
+﻿using DOPYAO_ADT_2021_22_2.Models;
+using System.Collections.Generic;
+
+namespace DOPYAO_ADT_2021_22_2.Logic
 {
-	internal interface IShelterLogic
+	public interface IShelterLogic
 	{
-	}
+        void ChangeShelterAddress(int id, string newCity, string newAddress);
+
+        void DeleteShelter(int id);
+
+        Shelter GetOneShelter(int id);
+
+        IEnumerable<Shelter> GetAllShelters();
+
+        Shelter InsertNewShelter(string sheltername, string city, string address);
+
+        IList<MostAnimalFromShelters> animalFromShelters();
+        IList<DogShelter> DogShelters();
+
+        IList<ShelterNames> SheltersName();
+    }
 }
