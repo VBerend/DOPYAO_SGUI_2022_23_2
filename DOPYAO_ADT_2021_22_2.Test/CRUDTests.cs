@@ -279,8 +279,7 @@ namespace DOPYAO_ADT_2021_22_2.Test
 
             Assert.True(adopterinfo.First().AnimalAge.Equals(9) && adopterinfo.First().AnimalName.Equals("Dunkin") && adopterinfo.First().AnimalBodysize.Equals("Large"));
         }
+
         #endregion
-
-
     }
 }
