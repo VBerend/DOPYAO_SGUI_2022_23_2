@@ -10,6 +10,8 @@ namespace DOPYAO_ADT_2021_22_2.Test
 	[TestFixture]
 	public class CRUDTests
 	{
+        #region CRUD TEST
+        [Test]
         public void TestCreateAdopter()
         {
             Mock<IAdopterRepository> mockedAdopterRepo = new Mock<IAdopterRepository>(MockBehavior.Loose);
@@ -20,7 +22,16 @@ namespace DOPYAO_ADT_2021_22_2.Test
             mockedAdopterRepo.Verify(repo => repo.Insert(It.IsAny<Adopter>()), Times.Once);
         }
 
+        [Test]
+        public void TestCreateAnimal()
+        {
+            Mock<IAnimalRepository> mockedAnimalRepo = new Mock<IAnimalRepository>(MockBehavior.Loose);
+            AnimalLogic animalLogic = new AnimalLogic(mockedAnimalRepo.Object);
+            mockedAnimalRepo.Setup(repo => repo.Insert(It.IsAny<Animal>()));
+            animalLogic.InsertNewAnimal("Fluffy", "female", "gatto", "smoll", 1);
+            mockedAnimalRepo.Verify(repo => repo.Insert(It.IsAny<Animal>()), Times.Once);
+        }
 
-
+        #endregion
     }
 }

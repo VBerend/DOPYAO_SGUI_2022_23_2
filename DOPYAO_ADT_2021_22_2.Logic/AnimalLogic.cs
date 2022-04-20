@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DOPYAO_ADT_2021_22_2.Logic
 {
-	class AnimalLogic : IAnimalLogic
+	public class AnimalLogic : IAnimalLogic
 	{
         IAnimalRepository animalRepo;
         IAdopterRepository adopterRepo;
