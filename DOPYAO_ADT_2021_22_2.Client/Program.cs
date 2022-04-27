@@ -95,6 +95,86 @@ namespace DOPYAO_ADT_2021_22_2.Client
 
 
 			#endregion
+
+			#region Adopter
+
+			// Create
+			static void AddNewAdopter(RestService rest)
+			{
+				try
+				{
+					Console.WriteLine("\n:: CREATING A NEW ADOPTER ::\n");
+					Console.WriteLine("TYPE THE NAME!");
+					string name = Console.ReadLine();
+					Console.WriteLine("TYPE THE ADDRESS!");
+					string address = Console.ReadLine();
+					Console.WriteLine("TYPE THE CITY!");
+					string city = Console.ReadLine();
+					Console.WriteLine("TYPE TRUE IF HAS KIDS OR TYPE FALSE IF NOT!");
+					bool hasKid = bool.Parse(Console.ReadLine());
+					rest.Post(new Adopter { Name = name, Address = address, City = city, HasKid = hasKid, }, "adopter");
+					Console.WriteLine("\n:: ADOPTER CREATED ::");
+					Console.ReadKey();
+				}
+				catch (Exception e)
+				{
+					Console.WriteLine(e.Message);
+				}
+			}
+			// Read
+			static void GetOneAdopter(RestService rest)
+			{
+				Console.WriteLine("PLEASE TELL ME WHICH ADOPTER DO YOU WANNA GET [id]");
+				int id = int.Parse(Console.ReadLine());
+				var adopter = rest.Get<Adopter>(id, "ADOPTER");
+				Console.WriteLine(adopter.ToString());
+				Console.WriteLine("\n Press any button to continue");
+				Console.ReadLine();
+			}
+
+			static void GetAdopters(RestService rest)
+			{
+				try
+				{
+					Console.WriteLine("ADOPTER LIST");
+					var adopters = rest.Get<Adopter>("ADOPTER");
+					adopters.ForEach(x => Console.WriteLine(x.ToString()));
+					Console.WriteLine("\n Press any button to continue");
+					Console.ReadLine();
+				}
+				catch (Exception e)
+				{
+
+					Console.WriteLine(e.Message);
+				}
+
+			}
+
+			//Update
+
+			//public void ChangeAdopterAddress(int id, string newCity, string newAddress)
+			//{
+			//	this.adopterRepo.ChangeAddress(id, newCity, newAddress);
+			//}
+
+			//public void ChangeAdopterHasKidBool(int id, bool hasKid)
+			//{
+			//	this.adopterRepo.ChangeHasKids(id, hasKid);
+			//}
+
+
+			// Delete
+			static void DeleteAdopter(RestService rest)
+			{
+				Console.WriteLine("PLEASE TELL ME WHICH ADOPTER DO YOU WANNA DELETE [id] (FROM EXISTENCE)");
+				int id = int.Parse(Console.ReadLine());
+				rest.Delete(id, "ADOPTER");
+				Console.WriteLine("ADOPTER DELETED, MAYBE THE ARCHIVE ARE INCOMPLETE ");
+				Console.WriteLine("\n Press any button to continue");
+				Console.ReadLine();
+			}
+
+			#endregion
 		}
 	}
 }
