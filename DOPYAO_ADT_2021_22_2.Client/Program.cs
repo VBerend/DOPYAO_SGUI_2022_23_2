@@ -326,6 +326,78 @@ namespace DOPYAO_ADT_2021_22_2.Client
 
 		#endregion
 
+		#region Shelter
 
+		// Create
+		static void InsertNewShelter(RestService rest)
+		{
+			try
+			{
+				Console.WriteLine("\n:: CREATING A NEW SHELTER ::\n");
+				Console.WriteLine("TYPE THE NAME!");
+				string sheltername = Console.ReadLine();
+				Console.WriteLine("TYPE THE GENDER!");
+				string city = Console.ReadLine();
+				Console.WriteLine("TYPE THE SPECIE!");
+				string address = Console.ReadLine();
+				rest.Post(new Shelter { ShelterName = sheltername, City = city, Address = address, }, "shelter");
+				Console.WriteLine("\n:: SHELTER CREATED ::");
+				Console.ReadKey();
+			}
+			catch (Exception e)
+			{
+				Console.WriteLine(e.Message);
+			}
+		}
+		// Read
+		static void GetOneShelter(RestService rest)
+		{
+			Console.WriteLine("PLEASE TELL ME WHICH SHELTER DO YOU WANNA GET [id]");
+			int id = int.Parse(Console.ReadLine());
+			var animal = rest.Get<Animal>(id, "SHELTER");
+			Console.WriteLine(animal.ToString());
+			Console.WriteLine("\n Press any button to continue");
+			Console.ReadLine();
+		}
+
+		static void GetAllShelters(RestService rest)
+		{
+			try
+			{
+				Console.WriteLine("SHELTER LIST");
+				var shelters = rest.Get<Shelter>("SHELTER");
+				shelters.ForEach(x => Console.WriteLine(x.ToString()));
+				Console.WriteLine("\n Press any button to continue");
+				Console.ReadLine();
+			}
+			catch (Exception e)
+			{
+
+				Console.WriteLine(e.Message);
+			}
+
+		}
+
+
+		//Update
+
+		//public void ChangeShelterAddress(int id, string newCity, string newAddress)
+		//{
+		//	shelterLogic.ChangeShelterAddress(id, newCity, newAddress);
+		//}
+
+
+		// Delete
+		static void DeleteShelter(RestService rest)
+		{
+			Console.WriteLine("PLEASE TELL ME WHICH SHELTER DO YOU WANNA DELETE [id] (FROM EXISTENCE)");
+			int id = int.Parse(Console.ReadLine());
+			rest.Delete(id, "SHELTER");
+			Console.WriteLine("SHELTER DELETED, MAYBE YOUR ARCHIVE ARE INCOMPLETE ");
+			Console.WriteLine("\n Press any button to continue");
+			Console.ReadLine();
+		}
+
+		#endregion
 	}
 }
