@@ -44,10 +44,7 @@ namespace DOPYAO_ADT_2021_22_2.Endpoint
 
 			app.UseEndpoints(endpoints =>
 			{
-				endpoints.MapGet("/", async context =>
-				{
-					await context.Response.WriteAsync("Hello World!");
-				});
+				endpoints.MapControllers();
 			});
 		}
 	}
