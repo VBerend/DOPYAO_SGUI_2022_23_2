@@ -9,7 +9,7 @@ namespace DOPYAO_ADT_2021_22_2.Client
 	{
 		static void Main(string[] args)
 		{
-			#region Menu
+		#region Menu
 			Thread.Sleep(8000);
 			RestService rserv = new RestService("http://localhost:38088");
 
@@ -61,12 +61,12 @@ namespace DOPYAO_ADT_2021_22_2.Client
 				});
 
 			var linqmenu = new ConsoleMenu()
-				.Add("Adopters and Animals", () => GibAnimalFromAdopter(rserv))
-				.Add("Most Animal got permanent home from shelters", () => animalFromShelters(rserv))
-				.Add("Adopters and the name of there pets", () => adoptersTherePetsWithNames(rserv))
-				.Add("Adopter info", () => adopterInfos(rserv))
-				.Add("Dog Shelters", () => dogShelters(rserv))
-				.Add("Shelter List", () => SheltersName(rserv))
+				.Add("Adopters and Animals",() => GibAnimalFromAdopter(rserv)) 		
+				.Add("Most Animal got permanent home from shelters",() => animalFromShelters(rserv)) 		
+				.Add("Adopters and the name of there pets",() => adoptersTherePetsWithNames(rserv)) 		
+				.Add("Adopter info",() => adopterInfos(rserv)) 		
+				.Add("Dog Shelters",() => dogShelters(rserv)) 		
+				.Add("Shelter List",() => SheltersName(rserv)) 		
 
 				.Configure(config =>
 				{
@@ -86,10 +86,10 @@ namespace DOPYAO_ADT_2021_22_2.Client
 
 			menu.Show();
 		}
-		#endregion
+		#endregion 
 
-		#region linq
-		private static void GibAnimalFromAdopter(RestService rest)
+			#region linq
+			private static void GibAnimalFromAdopter(RestService rest)
 			{
 				Console.WriteLine("This query should return each adopter along with the number of pets they have adopted");
 				var adopteranimallist = rest.Get<GibAnimalFromAdopter>("adopter/animalfromadopter");
@@ -102,7 +102,6 @@ namespace DOPYAO_ADT_2021_22_2.Client
 				Console.ReadLine();
 
 			}
-
 			private static void animalFromShelters(RestService rest)
 			{
 				Console.WriteLine("This query should return each shelter which had more than 3 animal in it before adopters came and took them :3");
@@ -116,7 +115,6 @@ namespace DOPYAO_ADT_2021_22_2.Client
 				Console.ReadLine();
 
 			}
-
 			private static void adoptersTherePetsWithNames(RestService rest)
 			{
 				Console.WriteLine("This query should return each adopter along with their pets and theirs name");
@@ -130,7 +128,6 @@ namespace DOPYAO_ADT_2021_22_2.Client
 				Console.ReadLine();
 
 			}
-
 			private static void adopterInfos(RestService rest)
 			{
 				Console.WriteLine("This query should return each adopter who has kid(s) and has an older pet which bodysize is large");
@@ -144,7 +141,6 @@ namespace DOPYAO_ADT_2021_22_2.Client
 				Console.ReadLine();
 
 			}
-
 			private static void dogShelters(RestService rest)
 			{
 				Console.WriteLine("This query should return which shelters contains dogs");
@@ -173,9 +169,9 @@ namespace DOPYAO_ADT_2021_22_2.Client
 			}
 
 
-			#endregion
+		#endregion
 
-			#region Adopter
+		#region Adopter
 
 			// Create
 			static void AddNewAdopter(RestService rest)
@@ -253,7 +249,83 @@ namespace DOPYAO_ADT_2021_22_2.Client
 				Console.ReadLine();
 			}
 
-			#endregion
+		#endregion
+
+		#region Animal
+
+		// Create
+		static void InsertNewAnimal(RestService rest)
+		{
+			try
+			{
+				Console.WriteLine("\n:: CREATING A NEW ANIMAL ::\n");
+				Console.WriteLine("TYPE THE NAME!");
+				string name = Console.ReadLine();
+				Console.WriteLine("TYPE THE GENDER!");
+				string gender = Console.ReadLine();
+				Console.WriteLine("TYPE THE SPECIE!");
+				string specie = Console.ReadLine();
+				Console.WriteLine("TYPE THE AGE!");
+				int age = int.Parse(Console.ReadLine());
+				rest.Post(new Animal { Name = name, Gender = gender, Specie = specie, Age = age, }, "animal");
+				Console.WriteLine("\n:: ANIMAL CREATED ::");
+				Console.ReadKey();
+			}
+			catch (Exception e)
+			{
+				Console.WriteLine(e.Message);
+			}
 		}
+		// Read
+		static void GetOneAnimal(RestService rest)
+		{
+			Console.WriteLine("PLEASE TELL ME WHICH ANIMAL DO YOU WANNA GET [id]");
+			int id = int.Parse(Console.ReadLine());
+			var animal = rest.Get<Animal>(id, "ANIMAL");
+			Console.WriteLine(animal.ToString());
+			Console.WriteLine("\n Press any button to continue");
+			Console.ReadLine();
+		}
+
+		static void GetAllAnimals(RestService rest)
+		{
+			try
+			{
+				Console.WriteLine("ANIMAL LIST");
+				var animal = rest.Get<Adopter>("ANIMAL");
+				animal.ForEach(x => Console.WriteLine(x.ToString()));
+				Console.WriteLine("\n Press any button to continue");
+				Console.ReadLine();
+			}
+			catch (Exception e)
+			{
+
+				Console.WriteLine(e.Message);
+			}
+
+		}
+
+		//Update
+
+		//public void ChangeAdopterAddress(int id, string newCity, string newAddress)
+		//{
+		//	this.adopterRepo.ChangeAddress(id, newCity, newAddress);
+		//}
+
+
+		// Delete
+		static void DeleteAnimal(RestService rest)
+		{
+			Console.WriteLine("PLEASE TELL ME WHICH ANIMAL DO YOU WANNA DELETE [id] (FROM EXISTENCE)");
+			int id = int.Parse(Console.ReadLine());
+			rest.Delete(id, "ANIMAL");
+			Console.WriteLine("ANIMAL DELETED, MAYBE YOUR ARCHIVE ARE INCOMPLETE ");
+			Console.WriteLine("\n Press any button to continue");
+			Console.ReadLine();
+		}
+
+		#endregion
+
+
 	}
 }
