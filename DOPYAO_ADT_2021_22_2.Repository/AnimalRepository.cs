@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DOPYAO_ADT_2021_22_2.Repository
 {
-	class AnimalRepository : Repository<Animal>, IAnimalRepository
+	public class AnimalRepository : Repository<Animal>, IAnimalRepository
 	{
 		public AnimalRepository(ShelterDbContext context) : base(context)
 		{

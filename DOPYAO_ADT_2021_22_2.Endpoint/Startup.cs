@@ -1,3 +1,6 @@
+using DOPYAO_ADT_2021_22_2.Data;
+using DOPYAO_ADT_2021_22_2.Logic;
+using DOPYAO_ADT_2021_22_2.Repository;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -16,6 +19,17 @@ namespace DOPYAO_ADT_2021_22_2.Endpoint
 		// For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
 		public void ConfigureServices(IServiceCollection services)
 		{
+			services.AddControllers();
+
+			services.AddScoped<IShelterLogic, ShelterLogic>();
+			services.AddScoped<IAdopterLogic, AdopterLogic>();
+			services.AddScoped<IAnimalLogic, AnimalLogic>();
+
+			services.AddScoped<IAdopterRepository, AdopterRepository>();
+			services.AddScoped<IAnimalRepository, AnimalRepository>();
+			services.AddScoped<IShelterRepository, ShelterRepository>();
+
+			services.AddDbContext<ShelterDbContext>();
 		}
 
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
