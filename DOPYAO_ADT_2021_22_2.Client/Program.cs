@@ -9,8 +9,87 @@ namespace DOPYAO_ADT_2021_22_2.Client
 	{
 		static void Main(string[] args)
 		{
-			#region linq
-			private static void GibAnimalFromAdopter(RestService rest)
+			#region Menu
+			Thread.Sleep(8000);
+			RestService rserv = new RestService("http://localhost:38088");
+
+			var adoptermenu = new ConsoleMenu()
+				.Add("CREATE A NEW ADOPTER", () => AddNewAdopter(rserv))
+				.Add("GET ONE ADOPTER", () => GetOneAdopter(rserv))
+				.Add("GET ADOPTERS", () => GetAdopters(rserv))
+				.Add("DELETE ADOPTER", () => DeleteAdopter(rserv))
+				.Add("GO BACK", ConsoleMenu.Close)
+				.Configure(config =>
+				{
+					config.Selector = "--> ";
+					config.SelectedItemBackgroundColor = ConsoleColor.Red;
+				});
+
+			var animalmenu = new ConsoleMenu()
+				.Add("CREATE A NEW ANIMAL", () => InsertNewAnimal(rserv))
+				.Add("GET ONE ANIMAL", () => GetOneAnimal(rserv))
+				.Add("GET ANIMALS", () => GetAllAnimals(rserv))
+				.Add("DELETE ANIMAL", () => DeleteAnimal(rserv))
+				.Add("GO BACK", ConsoleMenu.Close)
+				.Configure(config =>
+				{
+					config.Selector = "--> ";
+					config.SelectedItemBackgroundColor = ConsoleColor.Red;
+				});
+
+			var sheltermenu = new ConsoleMenu()
+				.Add("CREATE A NEW SHELTER", () => InsertNewShelter(rserv))
+				.Add("GET ONE SHELTER", () => GetOneShelter(rserv))
+				.Add("GET SHELTER", () => GetAllShelters(rserv))
+				.Add("DELETE SHELTER", () => DeleteShelter(rserv))
+				.Add("GO BACK", ConsoleMenu.Close)
+				.Configure(config =>
+				{
+					config.Selector = "--> ";
+					config.SelectedItemBackgroundColor = ConsoleColor.Red;
+				});
+
+			var crudmenu = new ConsoleMenu()
+				.Add("Adopters", () => adoptermenu.Show())
+				.Add("Animals", () => animalmenu.Show())
+				.Add("Shelters", () => sheltermenu.Show())
+				.Add("GO BACK", ConsoleMenu.Close)
+				.Configure(config =>
+				{
+					config.Selector = "--> ";
+					config.SelectedItemBackgroundColor = ConsoleColor.Red;
+				});
+
+			var linqmenu = new ConsoleMenu()
+				.Add("Adopters and Animals", () => GibAnimalFromAdopter(rserv))
+				.Add("Most Animal got permanent home from shelters", () => animalFromShelters(rserv))
+				.Add("Adopters and the name of there pets", () => adoptersTherePetsWithNames(rserv))
+				.Add("Adopter info", () => adopterInfos(rserv))
+				.Add("Dog Shelters", () => dogShelters(rserv))
+				.Add("Shelter List", () => SheltersName(rserv))
+
+				.Configure(config =>
+				{
+					config.Selector = "--> ";
+					config.SelectedItemBackgroundColor = ConsoleColor.Red;
+				});
+
+			var menu = new ConsoleMenu()
+			.Add("CRUD methods", () => crudmenu.Show())
+			.Add("LINQ queries", () => linqmenu.Show())
+			.Add("EXIT", ConsoleMenu.Close)
+			.Configure(config =>
+			{
+				config.Selector = "]=> ";
+				config.SelectedItemBackgroundColor = ConsoleColor.Red;
+			});
+
+			menu.Show();
+		}
+		#endregion
+
+		#region linq
+		private static void GibAnimalFromAdopter(RestService rest)
 			{
 				Console.WriteLine("This query should return each adopter along with the number of pets they have adopted");
 				var adopteranimallist = rest.Get<GibAnimalFromAdopter>("adopter/animalfromadopter");
