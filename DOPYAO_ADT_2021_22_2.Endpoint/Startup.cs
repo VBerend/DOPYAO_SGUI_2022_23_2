@@ -27,7 +27,7 @@ namespace DOPYAO_ADT_2021_22_2.Endpoint
 
 			services.AddScoped<IAdopterRepository, AdopterRepository>();
 			services.AddScoped<IAnimalRepository, AnimalRepository>();
-			services.AddScoped<IShelterRepository, ShelterRepository>();
+			services.AddScoped<IShelterRepository, ShelterRepository>();		
 
 			services.AddDbContext<ShelterDbContext>();
 		}
