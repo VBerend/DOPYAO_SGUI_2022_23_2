@@ -295,7 +295,7 @@ namespace DOPYAO_ADT_2021_22_2.Client
 		{
 			Console.WriteLine("PLEASE TELL ME WHICH ANIMAL DO YOU WANNA GET [id]");
 			int id = int.Parse(Console.ReadLine());
-			var animal = rest.Get<Animal>(id, "ANIMAL");
+			var animal = rest.Get<Animal>(id, $"animal/GetOneAnimal/{id}");
 			Console.WriteLine(animal.ToString());
 			Console.WriteLine("\n Press any button to continue");
 			Console.ReadLine();
@@ -306,7 +306,7 @@ namespace DOPYAO_ADT_2021_22_2.Client
 			try
 			{
 				Console.WriteLine("ANIMAL LIST");
-				var animal = rest.Get<Adopter>("ANIMAL");
+				var animal = rest.Get<Adopter>("animal/GetAllAnimals");
 				animal.ForEach(x => Console.WriteLine(x.ToString()));
 				Console.WriteLine("\n Press any button to continue");
 				Console.ReadLine();
