@@ -247,10 +247,24 @@ namespace DOPYAO_ADT_2021_22_2.Client
 			}
 		}
 
-		//public void ChangeAdopterHasKidBool(int id, bool hasKid)
-		//{
-		//	this.adopterRepo.ChangeHasKids(id, hasKid);
-		//}
+		public void ChangeAdopterHasKidBool(RestService rest)
+		{
+			try
+			{
+				Console.WriteLine("PLEASE TELL ME WHICH ADOPTER DO YOU WANNA UPDATE");
+				int id = int.Parse(Console.ReadLine());
+				Console.WriteLine("PLEASE TELL ME WHICH ADOPTER GOT KIDS");
+				string haskidchange = Console.ReadLine();	
+				string newAddress = Console.ReadLine();
+				//var adopter = rest.Put<Adopter>(id, $"adopter/ChangeAdopterHasKidBool/{id}/{hasKid}");
+				Console.WriteLine("");
+
+			}
+			catch (Exception e)
+			{
+				Console.WriteLine(e.Message);
+			}
+		}
 
 
 		// Delete
