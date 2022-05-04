@@ -66,7 +66,7 @@ namespace DOPYAO_ADT_2021_22_2.Test
             mockedAnimalRepo.Verify(repo => repo.Delete(2));
 
         }
-        #endregion
+   
 
         [Test]
         public void TestChangeAdopterAddress()
@@ -88,7 +88,7 @@ namespace DOPYAO_ADT_2021_22_2.Test
             adopterLogic.ChangeAdopterAddress(1, "Szeged", "Kötő utca 2.");
             mockedAdopterRepo.Verify(repo => repo.ChangeAddress(1, "Szeged", "Kötő utca 2."), Times.Once);
         }
-#endregion
+        #endregion
 
         #region LinQ Test
 

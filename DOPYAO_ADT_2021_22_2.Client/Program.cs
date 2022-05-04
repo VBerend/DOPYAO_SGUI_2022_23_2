@@ -88,7 +88,7 @@ namespace DOPYAO_ADT_2021_22_2.Client
 		}
 		#endregion 
 
-			#region linq
+		#region linq
 			private static void GibAnimalFromAdopter(RestService rest)
 			{
 				Console.WriteLine("This query should return each adopter along with the number of pets they have adopted");
@@ -187,7 +187,7 @@ namespace DOPYAO_ADT_2021_22_2.Client
 					string city = Console.ReadLine();
 					Console.WriteLine("TYPE TRUE IF HAS KIDS OR TYPE FALSE IF NOT!");
 					bool hasKid = bool.Parse(Console.ReadLine());
-					rest.Post(new Adopter { Name = name, Address = address, City = city, HasKid = hasKid, }, "adopter");
+					rest.Post(new Adopter { Name = name, Address = address, City = city, HasKid = hasKid, }, "ADOPTER");
 					Console.WriteLine("\n:: ADOPTER CREATED ::");
 					Console.ReadKey();
 				}
@@ -225,21 +225,35 @@ namespace DOPYAO_ADT_2021_22_2.Client
 
 			}
 
-			//Update
+		//Update
 
-			//public void ChangeAdopterAddress(int id, string newCity, string newAddress)
-			//{
-			//	this.adopterRepo.ChangeAddress(id, newCity, newAddress);
-			//}
+		//public void ChangeAdopterAddress(RestService rest)
+		//{
+		//	try
+		//	{
+		//		Console.WriteLine("PLEASE TELL ME WHERE DID THE ADOPTER MOVED(CITY)");
+		//		string city = Console.ReadLine();
+		//		rest.Post<string>(city, "ADOPTER");
+		//		Console.WriteLine("PLEASE TELL ME WHERE DID THE ADOPTER MOVED(ADDRESS)");
+		//		string address = Console.ReadLine();
+		//		rest.Post<string>(address, "ADOPTER");
+		//		Console.WriteLine("");
 
-			//public void ChangeAdopterHasKidBool(int id, bool hasKid)
-			//{
-			//	this.adopterRepo.ChangeHasKids(id, hasKid);
-			//}
+		//	}
+		//	catch (Exception e)
+		//	{
+		//		Console.WriteLine(e.Message);
+		//	}
+		//}
+
+		//public void ChangeAdopterHasKidBool(int id, bool hasKid)
+		//{
+		//	this.adopterRepo.ChangeHasKids(id, hasKid);
+		//}
 
 
-			// Delete
-			static void DeleteAdopter(RestService rest)
+		// Delete
+		static void DeleteAdopter(RestService rest)
 			{
 				Console.WriteLine("PLEASE TELL ME WHICH ADOPTER DO YOU WANNA DELETE [id] (FROM EXISTENCE)");
 				int id = int.Parse(Console.ReadLine());
@@ -316,7 +330,7 @@ namespace DOPYAO_ADT_2021_22_2.Client
 		// Delete
 		static void DeleteAnimal(RestService rest)
 		{
-			Console.WriteLine("PLEASE TELL ME WHICH ANIMAL DO YOU WANNA DELETE [id] (FROM EXISTENCE)");
+			Console.WriteLine("PLEASE TELL ME WHICH ANIMAL DO YOU WANNA DELETE [id]");
 			int id = int.Parse(Console.ReadLine());
 			rest.Delete(id, "ANIMAL");
 			Console.WriteLine("ANIMAL DELETED, MAYBE YOUR ARCHIVE ARE INCOMPLETE ");
