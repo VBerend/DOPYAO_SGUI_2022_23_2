@@ -47,7 +47,7 @@ namespace DOPYAO_ADT_2021_22_2.Models
 
 		public override string ToString()
 		{
-			return $"\n{this.Id} {this.Name} {this.Gender}{this.Specie}{this.Bodysize}{this.Age}";
+			return $"\n{this.Id} {this.Name} - {this.Gender} - {this.Specie} - {this.Bodysize} - {this.Age}";
 		}
 
 	}
