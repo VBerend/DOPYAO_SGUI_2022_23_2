@@ -66,8 +66,8 @@ namespace DOPYAO_ADT_2021_22_2.Client
 				.Add("Adopters and the name of there pets",() => adoptersTherePetsWithNames(rserv)) 		
 				.Add("Adopter info",() => adopterInfos(rserv)) 		
 				.Add("Dog Shelters",() => dogShelters(rserv)) 		
-				.Add("Shelter List",() => SheltersName(rserv)) 		
-
+				.Add("Shelter List",() => SheltersName(rserv))
+				.Add("GO BACK", ConsoleMenu.Close)
 				.Configure(config =>
 				{
 					config.Selector = "--> ";
@@ -332,7 +332,7 @@ namespace DOPYAO_ADT_2021_22_2.Client
 		{
 			Console.WriteLine("PLEASE TELL ME WHICH ANIMAL DO YOU WANNA DELETE [id]");
 			int id = int.Parse(Console.ReadLine());
-			rest.Delete(id, "ANIMAL");
+			rest.Delete(id, $"animal/DeleteAnimal/{id}");
 			Console.WriteLine("ANIMAL DELETED, MAYBE YOUR ARCHIVE ARE INCOMPLETE ");
 			Console.WriteLine("\n Press any button to continue");
 			Console.ReadLine();
@@ -368,7 +368,7 @@ namespace DOPYAO_ADT_2021_22_2.Client
 		{
 			Console.WriteLine("PLEASE TELL ME WHICH SHELTER DO YOU WANNA GET [id]");
 			int id = int.Parse(Console.ReadLine());
-			var animal = rest.Get<Animal>(id, "SHELTER");
+			var animal = rest.Get<Shelter>(id, $"shelter/GetOneShelter/{id}");
 			Console.WriteLine(animal.ToString());
 			Console.WriteLine("\n Press any button to continue");
 			Console.ReadLine();
@@ -379,7 +379,7 @@ namespace DOPYAO_ADT_2021_22_2.Client
 			try
 			{
 				Console.WriteLine("SHELTER LIST");
-				var shelters = rest.Get<Shelter>("SHELTER");
+				var shelters = rest.Get<Shelter>("shelter/GetAllShelters");
 				shelters.ForEach(x => Console.WriteLine(x.ToString()));
 				Console.WriteLine("\n Press any button to continue");
 				Console.ReadLine();
@@ -406,7 +406,7 @@ namespace DOPYAO_ADT_2021_22_2.Client
 		{
 			Console.WriteLine("PLEASE TELL ME WHICH SHELTER DO YOU WANNA DELETE [id] (FROM EXISTENCE)");
 			int id = int.Parse(Console.ReadLine());
-			rest.Delete(id, "SHELTER");
+			rest.Delete(id, $"shelter/DeleteShelter/{id}");
 			Console.WriteLine("SHELTER DELETED, MAYBE YOUR ARCHIVE ARE INCOMPLETE ");
 			Console.WriteLine("\n Press any button to continue");
 			Console.ReadLine();

@@ -36,5 +36,11 @@ namespace DOPYAO_ADT_2021_22_2.Models
 		{
 			Animals = new HashSet<Animal>();
 		}
+
+		public override string ToString()
+		{
+			return $"\n{this.Id} {this.ShelterName} - {this.City} - {this.Address} - {this.Animals}";
+		}
+
 	}
 }
