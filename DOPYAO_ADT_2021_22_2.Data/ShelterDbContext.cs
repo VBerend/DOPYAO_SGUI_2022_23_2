@@ -45,7 +45,7 @@ namespace DOPYAO_ADT_2021_22_2.Data
 			Animal animal7 = new Animal() { Id = 7, Name = "Buttercup", Gender = "Female", Specie = "Catto", Bodysize = "smol", Age = 2, AdopterId = adopter4.Id, ShelterId = shelter4.Id }; // she's kinda special
 			Animal animal8 = new Animal() { Id = 8, Name = "krém", Gender = "Female", Specie = "Cat", Bodysize = "Medium", Age = 6, AdopterId = adopter5.Id, ShelterId = shelter1.Id };
 			Animal animal9 = new Animal() { Id = 9, Name = "Pisztácia", Gender = "Male", Specie = "Birb", Bodysize = "Medium", Age = 1, AdopterId = adopter5.Id, ShelterId = shelter1.Id };
-			Animal animal10 = new Animal() { Id = 10, Name = "Holymotherofgod", Gender = "Male", Specie = "Dog", Bodysize = "Large", Age = 10, AdopterId = adopter5.Id, ShelterId = shelter3.Id };
+			Animal animal10 = new Animal() { Id = 10, Name = "HolymotherofGod", Gender = "Male", Specie = "Dog", Bodysize = "Large", Age = 10, AdopterId = adopter5.Id, ShelterId = shelter3.Id };
 
 			// connections
 			modelBuilder.Entity<Animal>(entity =>

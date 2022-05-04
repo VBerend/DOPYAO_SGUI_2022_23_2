@@ -227,24 +227,25 @@ namespace DOPYAO_ADT_2021_22_2.Client
 
 		//Update
 
-		//public void ChangeAdopterAddress(RestService rest)
-		//{
-		//	try
-		//	{
-		//		Console.WriteLine("PLEASE TELL ME WHERE DID THE ADOPTER MOVED(CITY)");
-		//		string city = Console.ReadLine();
-		//		rest.Post<string>(city, "ADOPTER");
-		//		Console.WriteLine("PLEASE TELL ME WHERE DID THE ADOPTER MOVED(ADDRESS)");
-		//		string address = Console.ReadLine();
-		//		rest.Post<string>(address, "ADOPTER");
-		//		Console.WriteLine("");
+		public void ChangeAdopterAddress(RestService rest)
+		{
+			try
+			{
+				Console.WriteLine("PLEASE TELL ME WHICH ADOPTER DO YOU WANNA UPDATE");
+				int id = int.Parse(Console.ReadLine());
+				Console.WriteLine("PLEASE TELL ME WHERE DID THE ADOPTER MOVED(CITY)");
+				string newCity = Console.ReadLine();	
+				Console.WriteLine("PLEASE TELL ME WHERE DID THE ADOPTER MOVED(ADDRESS)");
+				string newAddress = Console.ReadLine();
+				//var adopter = rest.Put<Adopter>(id, $"adopter/ChangeAdopterAddress/{id}/{newCity}/{newAddress}");
+				Console.WriteLine("");
 
-		//	}
-		//	catch (Exception e)
-		//	{
-		//		Console.WriteLine(e.Message);
-		//	}
-		//}
+			}
+			catch (Exception e)
+			{
+				Console.WriteLine(e.Message);
+			}
+		}
 
 		//public void ChangeAdopterHasKidBool(int id, bool hasKid)
 		//{
