@@ -18,14 +18,13 @@ namespace DOPYAO_ADT_2021_22_2.Endpoint.Controller
         {
             this.adopterLogic = adopterLogic;
         }
-        [Route("GetAllAdopters")]
         [HttpGet]
         public IQueryable<Adopter> GetAllAdopters()
         {
             return adopterLogic.GetAllAdopters();
         }
 
-        [Route("GetOneAdopter/{id}")]
+        [Route("{id}")]
         [HttpGet]
         public Adopter GetOneAdopter(int id)
         {

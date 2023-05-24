@@ -9,7 +9,7 @@
   },
   "profiles": {
     "IIS Express": {
-      "launchUrl": "Adopter/GetAllAdopters",
+      "launchUrl": "Animal",
       "commandName": "IISExpress",
       "launchBrowser": true,
       "environmentVariables": {

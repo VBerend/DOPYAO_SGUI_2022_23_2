@@ -19,14 +19,13 @@ namespace DOPYAO_ADT_2021_22_2.Endpoint.Controller
             this.animalLogic = animalLogic;
         }
 
-        [Route("GetAllAnimals")]
         [HttpGet]
         public IQueryable<Animal> GetAllAnimals()
         {
             return animalLogic.GetAllAnimals().AsQueryable();
         }
 
-        [Route("GetOneAnimal/{id}")]
+        [Route("{id}")]
         [HttpGet]
         public Animal GetOneAnimal(int id)
         {

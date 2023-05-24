@@ -19,14 +19,13 @@ namespace DOPYAO_ADT_2021_22_2.Endpoint.Controller
             this.shelterLogic = shelterLogic;
         }
 
-        [Route("GetAllShelters")]
         [HttpGet]
         public IQueryable<Shelter> GetAllShelters()
         {
             return shelterLogic.GetAllShelters().AsQueryable();
         }
 
-        [Route("GetOneShelter/{id}")]
+        [Route("{id}")]
         [HttpGet]
         public Shelter GetOneShelter(int id)
         {

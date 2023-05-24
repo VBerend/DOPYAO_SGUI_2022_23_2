@@ -18,7 +18,7 @@ namespace DOPYAO_ADT_2021_22_2.Data
 		{
 			if (builder != null && !builder.IsConfigured)
 			{
-				builder.UseLazyLoadingProxies().UseSqlServer(@"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename =|DataDirectory|\Database.mdf; Integrated Security = True; ");
+				builder.UseLazyLoadingProxies().UseSqlServer(@"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename =|DataDirectory|\FosDbDotCom.mdf; Integrated Security = True; ");
 			}
 		}
 

@@ -5,15 +5,15 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Database.mdf" />
-    <None Remove="Database_log.ldf" />
+    <None Remove="FosDbDotCom.mdf" />
+    <None Remove="FosDbDotCom_log.ldf" />
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="Database.mdf">
+    <Content Include="FosDbDotCom.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Database_log.ldf">
+    <Content Include="FosDbDotCom_log.ldf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

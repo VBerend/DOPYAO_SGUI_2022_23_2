@@ -1,0 +1,9 @@
+﻿<Application x:Class="DOPYAO_ADT_2021_22_2.WpfClient.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:DOPYAO_ADT_2021_22_2.WpfClient"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+         
+    </Application.Resources>
+</Application>

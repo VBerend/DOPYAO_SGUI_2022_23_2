@@ -1,0 +1,109 @@
+﻿<Window x:Class="DOPYAO_ADT_2021_22_2.WpfClient.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DOPYAO_ADT_2021_22_2.WpfClient"
+        mc:Ignorable="d"
+        Title="Main page" Height="500
+		" Width="800">
+	
+	<Window.DataContext>
+		<local:MainWindowViewModel/>
+	</Window.DataContext>
+	
+	<TabControl Background="LightGreen">
+		<TabItem Header="Animals">
+			<Grid>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="1*"/>
+					<ColumnDefinition Width="1*"/>
+					<ColumnDefinition Width="1*"/>
+				</Grid.ColumnDefinitions>
+				<ListBox ItemsSource="{Binding Animals}" SelectedItem="{Binding ChosenAnimal}" Background="LightGreen" Margin="0,0,0,0
+						 ">
+					<ListBox.ItemTemplate>
+						<DataTemplate>
+							<Label Content="{Binding Name}"/>
+						</DataTemplate>
+					</ListBox.ItemTemplate>
+				</ListBox>
+				
+				<StackPanel Grid.Column="1">
+					<Label FontSize="15" Background="LawnGreen" Content="Name" Padding="3"/>
+					<TextBox FontSize="15" Background="GhostWhite" Text="{Binding ChosenAnimal.Name}" Padding="3" Margin="0,0,0,0" RenderTransformOrigin="-0.553,0.573"/>
+					<Label FontSize="15" Content="Gender" Background="LawnGreen" Padding="3"/>
+					<TextBox FontSize="15" Background="GhostWhite" Text="{Binding ChosenAnimal.Specie}" Padding="3" Margin="0,0,0,0"/>
+					<Label FontSize="15" Content="BodyType" Background="LawnGreen" Padding="3"/>
+					<TextBox FontSize="15" Background="GhostWhite" Text="{Binding ChosenAnimal.Specie}" Padding="3" Margin="0,0,0,0"/>
+					<Label FontSize="15" Content="Age" Background="LawnGreen" Padding="3"/>
+					<TextBox FontSize="15" Background="GhostWhite" Text="{Binding ChosenAnimal.Age}" Padding="3" Margin="0,0,0,5"/>
+					<Label FontSize="15" Content="Shelter" Background="LawnGreen" Padding="3"/>
+					<TextBox FontSize="15" Background="GhostWhite" Text="{Binding ChosenAnimal.ShelterId}" Padding="3" Margin="0,0,0,5"/>
+					<Button FontSize="15" Background="LawnGreen" Content="Create animal" Command="{Binding CreateAnimalCommand}" Margin="10" Padding="7"/>
+					<Button FontSize="15" Background="LawnGreen" Content="Delete animal" Command="{Binding DeleteAnimalCommand}" Margin="10" Padding="7"/>
+					<Button FontSize="15" Background="LawnGreen" Content="Update animal" Command="{Binding UpdateAnimalCommand}" Margin="10" Padding="7"/>
+				</StackPanel>
+			</Grid>
+		</TabItem>
+		<TabItem Header="Shelters">
+		<Grid>
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="1*"/>
+				<ColumnDefinition Width="1*"/>
+			</Grid.ColumnDefinitions>
+				<ListBox ItemsSource="{Binding Animals}" SelectedItem="{Binding ChosenAnimal}" Background="LightGreen" Margin="0,0,0,0">
+					<ListBox.ItemTemplate>
+						<DataTemplate>
+							<Label Content="{Binding Name}"/>
+						</DataTemplate>
+					</ListBox.ItemTemplate>
+				</ListBox>
+				<StackPanel Grid.Column="1">
+					<Label FontSize="15" Background="LawnGreen" Content="Name" Padding="3"/>
+					<TextBox FontSize="15" Background="GhostWhite" Text="{Binding ChosenShelter.ShelterName}" Padding="3" Margin="0,0,0,0" RenderTransformOrigin="-0.553,0.573"/>
+					<Label FontSize="15" Content="Address" Background="LawnGreen" Padding="3"/>
+					<TextBox FontSize="15" Background="GhostWhite" Text="{Binding ChosenShelter.Address}" Padding="3" Margin="0,0,0,0"/>
+					<Label FontSize="15" Content="BodyType" Background="LawnGreen" Padding="3"/>
+					<TextBox FontSize="15" Background="GhostWhite" Text="{Binding ChosenShelter.City}" Padding="3" Margin="0,0,0,0"/>
+					<Label FontSize="15" Content="Age" Background="LawnGreen" Padding="3"/>
+					<TextBox FontSize="15" Background="GhostWhite" Text="{Binding ChosenShelter.Animals}" Padding="3" Margin="0,0,0,5"/>
+					<Button FontSize="15" Background="LawnGreen" Content="Create animal" Command="{Binding CreateShelterCommand}" Margin="10" Padding="7"/>
+					<Button FontSize="15" Background="LawnGreen" Content="Delete animal" Command="{Binding DeleteShelterCommand}" Margin="10" Padding="7"/>
+					<Button FontSize="15" Background="LawnGreen" Content="Update animal" Command="{Binding UpdateShelterCommand}" Margin="10" Padding="7"/>
+				</StackPanel>
+		</Grid>
+		</TabItem>
+		<TabItem Header="Adopters">
+			<Grid>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="1*"/>
+					<ColumnDefinition Width="1*"/>
+				</Grid.ColumnDefinitions>
+				<ListBox ItemsSource="{Binding Animals}" SelectedItem="{Binding ChosenAnimal}" Background="LightGreen" Margin="0,0,0,0">
+					<ListBox.ItemTemplate>
+						<DataTemplate>
+							<Label Content="{Binding Name}"/>
+						</DataTemplate>
+					</ListBox.ItemTemplate>
+				</ListBox>
+				<StackPanel Grid.Column="1">
+					<Label FontSize="15" Background="LawnGreen" Content="Name" Padding="3"/>
+					<TextBox FontSize="15" Background="GhostWhite" Text="{Binding ChosenAdopter.Name}" Padding="3" Margin="0,0,0,0" RenderTransformOrigin="-0.553,0.573"/>
+					<Label FontSize="15" Content="Address" Background="LawnGreen" Padding="3"/>
+					<TextBox FontSize="15" Background="GhostWhite" Text="{Binding ChosenAdopter.Address}" Padding="3" Margin="0,0,0,0"/>
+					<Label FontSize="15" Content="Has kid" Background="LawnGreen" Padding="3"/>
+					<TextBox FontSize="15" Background="GhostWhite" Text="{Binding ChosenAdopter.HasKid}" Padding="3" Margin="0,0,0,0"/>
+					<Label FontSize="15" Content="Animal/s" Background="LawnGreen" Padding="3"/>
+					<TextBox FontSize="15" Background="GhostWhite" Text="{Binding ChosenAdopter.Animals}" Padding="3" Margin="0,0,0,5"/>
+					<Button FontSize="15" Background="LawnGreen" Content="Create animal" Command="{Binding CreateAdopterCommand}" Margin="10" Padding="7"/>
+					<Button FontSize="15" Background="LawnGreen" Content="Delete animal" Command="{Binding DeleteAdopterCommand}" Margin="10" Padding="7"/>
+					<Button FontSize="15" Background="LawnGreen" Content="Update animal" Command="{Binding UpdateAdopterCommand}" Margin="10" Padding="7"/>
+				</StackPanel>
+			</Grid>
+		</TabItem>
+	</TabControl>
+</Window>
+
+	
+	

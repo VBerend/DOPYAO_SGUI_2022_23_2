@@ -33,7 +33,7 @@ namespace DOPYAO_ADT_2021_22_2.Models
 
 		[NotMapped]
 		[JsonIgnore]
-		public virtual ICollection<Animal> Animals { get; }
+		public virtual ICollection<Animal> Animals { get; set; }
 
 		public override string ToString()
 		{
