@@ -34,7 +34,7 @@ namespace DOPYAO_ADT_2021_22_2.Endpoint.Controller
         [HttpPost]
         public Shelter InsertNewShelter([FromBody] Shelter newShelter)
         {
-            return shelterLogic.InsertNewShelter(sheltername, city, address);
+            return shelterLogic.InsertNewShelter(newShelter.ShelterName, newShelter.City, newShelter.Address);
         }
 
         [Route("DeleteShelter/{id}")]
