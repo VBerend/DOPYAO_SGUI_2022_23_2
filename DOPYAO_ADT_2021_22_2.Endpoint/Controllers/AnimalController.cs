@@ -46,11 +46,10 @@ namespace DOPYAO_ADT_2021_22_2.Endpoint.Controller
             animalLogic.DeleteAnimal(id);
         }
 
-        [Route("ChangeCustomerName/{id}/{newName}")]
         [HttpPut]
-        public void ChangeAnimalName(int id, string newName)
+        public void ChangeAnimalName(Animal animal)
         {
-            animalLogic.ChangeAnimalName(id, newName);
+            animalLogic.ChangeAnimalName(animal.Id, animal.Name);
         }
     }
 }

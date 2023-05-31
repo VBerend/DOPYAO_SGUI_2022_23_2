@@ -11,7 +11,7 @@ namespace DOPYAO_ADT_2021_22_2.Endpoint.Controller
     [Route("[controller]")]
     [ApiController]
     public class ShelterController : ControllerBase
-	{
+    {
         IShelterLogic shelterLogic;
 
         public ShelterController(IShelterLogic shelterLogic)
@@ -31,10 +31,8 @@ namespace DOPYAO_ADT_2021_22_2.Endpoint.Controller
         {
             return shelterLogic.GetOneShelter(id);
         }
-
-        [Route("InsertNewShelter/{ShelterName}/{City}/{Address}")]
         [HttpPost]
-        public Shelter InsertNewShelter([FromBody] string sheltername, string city, string address)
+        public Shelter InsertNewShelter([FromBody] Shelter newShelter)
         {
             return shelterLogic.InsertNewShelter(sheltername, city, address);
         }
@@ -46,11 +44,10 @@ namespace DOPYAO_ADT_2021_22_2.Endpoint.Controller
             shelterLogic.DeleteShelter(id);
         }
 
-        [Route("ChangeShelterAddress/{id}/{newCity}/{newAddress}")]
         [HttpPut]
-        public void ChangeShelterAddress(int id, string newCity, string newAddress)
+        public void ChangeShelterAddress(Shelter newShelter)
         {
-            shelterLogic.ChangeShelterAddress(id, newCity, newAddress);
+            shelterLogic.ChangeShelterAddress(newShelter.Id,newShelter.City,newShelter.Address);
         }
 
         [Route("animalfromshelter")]

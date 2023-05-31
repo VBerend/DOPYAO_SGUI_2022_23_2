@@ -55,15 +55,15 @@ namespace DOPYAO_ADT_2021_22_2.Logic
 			}
 			return this.adopterRepo.GimmeOne(id);
 		}
-
-		public Adopter InsertNewAdopter(string adoptername, string city, string address, bool haskid)
+		public Adopter InsertNewAdopter(Adopter newAdopter)
 		{
 			Adopter adopter = new Adopter()
 			{
-				Name = adoptername,
-				Address = address,
-				City = city,
-				HasKid = haskid,
+				Id = newAdopter.Id,
+				Name = newAdopter.Name,
+				Address = newAdopter.Address,
+				City = newAdopter.City,
+				HasKid = newAdopter.HasKid,
 			};
 			this.adopterRepo.Insert(adopter);
 			return adopter;

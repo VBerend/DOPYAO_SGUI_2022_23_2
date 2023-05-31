@@ -1,2 +1,111 @@
-﻿body {
+﻿table {
+width: 100%;
+}
+
+table, th, td {
+border: 1px solid black;
+}
+
+table {
+border-collapse: collapse;
+}
+
+th, td {
+padding: 5px;
+}
+
+th {
+background-color: forestgreen;
+}
+
+td {
+background-color: lightgray
+}
+
+#anim {
+display: unset;
+flex-direction: column;
+margin-bottom: 20px;
+}
+
+#anim label, button, input {
+margin: 10px;
+padding: 7px;
+background-color: forestgreen;
+}
+
+#animUpd {
+display: none;
+flex-direction: column;
+margin-bottom: 20px;
+}
+
+#animUpd label, button, input {
+margin: 10px;
+padding: 7px;
+background-color: forestgreen;
+}
+
+#adop {
+display: unset;
+flex-direction: column;
+margin-bottom: 20px;
+}
+
+#adopUpd {
+display: none;
+flex-direction: column;
+margin-bottom: 20px;
+}
+
+#adop label, button, input {
+margin: 10px;
+padding: 7px;
+background-color: forestgreen;
+}
+
+#adopUpd label, button, input {
+margin: 10px;
+padding: 7px;
+background-color: forestgreen;
+}
+
+#shel {
+display: unset;
+flex-direction: column;
+margin-bottom: 20px;
+}
+
+#shel label, button, input {
+margin: 10px;
+padding: 7px;
+background-color: forestgreen;
+}
+
+#shelUpd {
+display: none;
+flex-direction: column;
+margin-bottom: 20px;
+}
+
+#shelUpd label, button, input {
+margin: 10px;
+padding: 7px;
+background-color: forestgreen;
+}
+
+#anim label {
+font-weight: bolder;
+}
+
+#adop label {
+font-weight: bolder;
+}
+
+#shel label {
+font-weight: bolder;
+}
+
+table button {
+padding: 3px;
 }

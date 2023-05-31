@@ -57,9 +57,10 @@ namespace DOPYAO_ADT_2021_22_2.Logic
         {
             Shelter shelter = new Shelter()
             {
-                ShelterName = sheltername,
-                Address = address,
-                City = city,
+                Id = newShelter.Id,
+                ShelterName = newShelter.ShelterName,
+                Address = newShelter.Address,
+                City = newShelter.City,
             };
             this.shelterRepo.Insert(shelter);
             return shelter;

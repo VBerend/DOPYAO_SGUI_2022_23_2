@@ -365,7 +365,7 @@ namespace DOPYAO_ADT_2021_22_2.Client
 				Console.WriteLine("\n:: CREATING A NEW SHELTER ::\n");
 				Console.WriteLine("TYPE THE NAME!");
 				string sheltername = Console.ReadLine();
-				Console.WriteLine("TYPE THE GENDER!");
+				Console.WriteLine("TYPE THE CITY!");
 				string city = Console.ReadLine();
 				Console.WriteLine("TYPE THE SPECIE!");
 				string address = Console.ReadLine();

@@ -32,7 +32,7 @@ namespace DOPYAO_ADT_2021_22_2.Endpoint.Controller
         }
         [Route("InsertNewAdopter/{adoptername}/{city}/{address}/{haskid}")]
         [HttpPost]
-        public Adopter InsertNewAdopter([FromBody] string adoptername, string city, string address, bool haskid)
+        public Adopter Create([FromBody] Adopter newAdopter)
         {
             return adopterLogic.InsertNewAdopter(adoptername, city, address, haskid);
         }

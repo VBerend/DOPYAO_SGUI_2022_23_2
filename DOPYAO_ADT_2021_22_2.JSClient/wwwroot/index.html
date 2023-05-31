@@ -20,6 +20,75 @@
     <table>
         <thead>
             <tr>
+                <th>id</th>
+                <th>name</th>
+                <th>gender</th>
+                <th>specie</th>
+                <th>bodysize</th>
+                <th>age</th>
+            </tr>
+        </thead>
+        <tbody id="resultareaanimal">
+        </tbody>
+    </table>
+
+    <h2>Adopters</h2>
+
+    <div id="adop">
+        <label>Name</label>
+        <input type="text" name="Name" />
+        <label>Address</label>
+        <input type="text" name="Address" />
+        <label>City</label>
+        <input type="text" name="City" />
+        <label>Haskid</label>
+        <input type="checkbox" name="Haskid" />
+        <button type="button" onclick="createAdopter()">Add Adopter</button>
+    </div>
+
+
+    <div id="adopUpd">
+        <label>Address</label>
+        <input type="text" id="adop"/>
+        <button type="button" onclick="adopterUpdate()">Update Adopter</button>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>id</th>
+                <th>name</th>
+                <th>address</th>
+                <th>city</th>
+                <th>Haskid</th>
+            </tr>
+        </thead>
+        <tbody id="resultareaadopter"></tbody>
+    </table>
+
+    <h3>Shelters</h3>
+
+    <div id="shel">
+        <label>Shelter Name</label>
+        <input type="text" name="ShelterName" />
+        <label>City</label>
+        <input type="text" name="city" />
+        <label>Address</label>
+        <input type="text" name="address" />
+        <button type="button" onclick="createShelter()">Add Shelter</button>
+    </div>
+
+    <div id="shelUpd">
+        <label>Address</label>
+        <input type="text" id="address" />
+        <label>City</label>
+        <input type="text" id="city" />
+        <button type="button" onclick="shelterUpdate()"> Update Shelter</button>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
                 <th>Id</th>
                 <th>Name</th>
                 <th>Age</th>
