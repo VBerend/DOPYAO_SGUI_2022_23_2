@@ -2,7 +2,13 @@
 let shelters = [];
 let adopters = [];
 
+let animalIdForUpdate = -1;
+let adopterIdForUpdate = -1;
+let shelterIdForUpdate = -1;
+
 getDataAnimal();
+getDataAdopter();
+getDataShelter();
 
 async function getDataAnimal() {
     await fetch('http://localhost:38088/Animal')
@@ -13,73 +19,51 @@ async function getDataAnimal() {
             displayAnimals();
         });
 }
-//async function getDataAdopter() {
-//    await fetch('http://localhost:38088/Adopter')
-//        .then(x => x.json())
-//        .then(y => {
-//            adopters = y;
-//            console.log(adopters);
-//            displayAdopters();
-//        });
-//}
-//async function getDataShelter() {
-//    await fetch('http://localhost:38088/Shelter')
-//        .then(x => x.json())
-//        .then(y => {
-//            shelters = y;
-//            console.log(shelters);
-//            displayShelters();
-//        });
-//}
-
-function Create() {
-    let name = document.getElementById("Name").value
-    let gender = document.getElementById("Gender").value
-    let specie = document.getElementById("specie").value
-    let bodysize = document.getElementById("BodySize").value
-    let age = document.getElementById("Age").value
-
-    fetch("http://localhost:38088/Animal", {
-        method: "POST",
-        headers: { "Content-Type": "application/json", },
-        body: JSON.stringify(
-            { name: name, gender: gender, specie: specie, bodysize: bodysize, age: age })
-
-    })
-        .then(response => response)
-        .then(data => {
-            console.log("success", data)
-            getDataAnimal()
-        })
-        .catch((error) => { Console.error("Error:", error) })
+async function getDataAdopter() {
+    await fetch('http://localhost:38088/Adopter')
+        .then(x => x.json())
+        .then(y => {
+            adopters = y;
+            console.log(adopters);
+            displayAdopters();
+        });
+}
+async function getDataShelter() {
+    await fetch('http://localhost:38088/Shelter')
+        .then(x => x.json())
+        .then(y => {
+            shelters = y;
+            console.log(shelters);
+            displayShelters();
+        });
 }
 
 
-
-
 function createAdopter() {
-    let name = document.getElementById('Name').value;
+    let name = document.getElementById('adopterName').value;
     let city = document.getElementById('city').value;
     let address = document.getElementById('address').value;
-    let haskid = docunment.getElementById('Haskid').value;
+    let haskid = docunment.getElementById('haskid').value;
     fetch('http://localhost:38088/Adopter', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', },
         body: JSON.stringify(
-            { name: name,city : city, address : address,haskid: haskid }),})
+            { name: name, city: city, address: address, haskid: haskid }),
+    })
         .then(response => response)
         .then(data => {
             console.log('Success:', data);
             getDataAdopter();
         })
         .catch((error) => { console.error('Error:', error); });
+
 }
 
 function createShelter() {
     let name = document.getElementById('Name').value;
     let address = document.getElementById('address').value;
     let city = document.getElementById('city').value;
-    fetch('http://localhost:38088/Shelter/', {
+    fetch('http://localhost:38088/Shelter', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', },
         body: JSON.stringify(
@@ -88,7 +72,7 @@ function createShelter() {
                 address: address,
                 city: city
             }),
-        })
+    })
         .then(response => response)
         .then(data =>
         {
@@ -210,7 +194,7 @@ function showupdatedshelter(id) {
 function animalUpdate() {
     document.getElementById('animUpd').style.display = 'none';
     let name = document.getElementById('anim').value;
-    fetch('http://localhost:38088/Animal/', {
+    fetch('http://localhost:38088/Animal/newName', {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json', },
         body: JSON.stringify(
@@ -228,22 +212,23 @@ function animalUpdate() {
 function adopterUpdate() {
     document.getElementById('adopUpd').style.display = 'none';
     let name = document.getElementById('adop').value;
-    fetch('http://localhost:38088/Adopter/', {
+    fetch('http://localhost:38088/Adopter/ChangeAdopterAddress/', {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json', },
         body: JSON.stringify(
             {
                 name: name,
                 address: address,
-                city : city
+                city: city
             }),
-        })
+    })
         .then(response => response)
         .then(data => {
             console.log('WellDone:', data);
             getDataAdopter();
         })
-        .catch((error) => { console.error('Error:', error); 
+        .catch((error) => {
+            console.error('Error:', error);
         });
 
 }
@@ -256,7 +241,7 @@ function shelterUpdate() {
         headers: { 'Content-Type': 'application/json', },
         body: JSON.stringify(
             {
-                name:name,
+                name: name,
                 city: city,
                 address: address
             }),
@@ -268,12 +253,4 @@ function shelterUpdate() {
         })
         .catch((error) => { console.error('Error:', error); });
 
-//function displayShelters() {
-//    document.getElementById('resultarea').innerHTML = "";
-//    shelters.forEach(t => {
-//        document.getElementById('resultarea').innerHTML +=
-//            "<tr><td>" + t.id + "</td><td>" + t.shelterName + "</td><td>" + `<button type="button" onclick="remove(${t.id})">Delete</button>` +
-//            `<button type="button" onclick="showupdate(${t.id})">Update</button>`
-//            + "</td></tr>";
-//    });
-//}
+}

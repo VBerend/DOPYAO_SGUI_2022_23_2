@@ -34,7 +34,7 @@ namespace DOPYAO_ADT_2021_22_2.Endpoint.Controller
         [HttpPost]
         public Adopter Create([FromBody] Adopter newAdopter)
         {
-            return adopterLogic.InsertNewAdopter(newAdopter.Name, newAdopter.City, newAdopter.Address, newAdopter.Haskid);
+            return adopterLogic.InsertNewAdopter(newAdopter);
         }
 
         [Route("DeleteAdopter/{id}")]

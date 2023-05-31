@@ -16,7 +16,7 @@ namespace DOPYAO_ADT_2021_22_2.Logic
 
         IQueryable<Adopter> GetAllAdopters();
 
-        Adopter InsertNewAdopter(string adoptername, string city, string address, bool haskid);
+        Adopter InsertNewAdopter(Adopter newAdopter);
 
         IList<GibAnimalFromAdopter> animalFromAdopter();
         IList<AdoptersTherePetsWithName> adoptersTherePetsWithNames();

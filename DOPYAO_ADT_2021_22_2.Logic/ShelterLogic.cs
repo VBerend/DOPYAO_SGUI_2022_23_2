@@ -53,7 +53,7 @@ namespace DOPYAO_ADT_2021_22_2.Logic
             return shelter;
         }
 
-        public Shelter InsertNewShelter(string sheltername, string city, string address)
+        public Shelter InsertNewShelter(Shelter newShelter)
         {
             Shelter shelter = new Shelter()
             {

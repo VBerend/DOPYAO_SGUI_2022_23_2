@@ -13,7 +13,7 @@ namespace DOPYAO_ADT_2021_22_2.Logic
 
         IEnumerable<Shelter> GetAllShelters();
 
-        Shelter InsertNewShelter(string sheltername, string city, string address);
+        Shelter InsertNewShelter(Shelter newShelter);
 
         IList<MostAnimalFromShelters> animalFromShelters();
         IList<DogShelter> DogShelters();
