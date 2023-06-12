@@ -48,7 +48,12 @@ function createAdopter() {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', },
         body: JSON.stringify(
-            { name: name, city: city, address: address, haskid: haskid }),
+            {
+                name: name,
+                city: city,
+                address: address,
+                haskid: haskid
+            }),
     })
         .then(response => response)
         .then(data => {
@@ -60,19 +65,17 @@ function createAdopter() {
 }
 
 function createShelter() {
-    let name = document.getElementById('Name').value;
-    let address = document.getElementById('address').value;
-    let city = document.getElementById('city').value;
+    let name = document.getElementById('name').value;
     fetch('http://localhost:38088/Shelter', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', },
         body: JSON.stringify(
             {
-                shelterName: name,
+                name: name,
                 address: address,
                 city: city
             }),
-    })
+        })
         .then(response => response)
         .then(data =>
         {
@@ -164,7 +167,7 @@ function displayShelters() {
         document.getElementById('resultareashelter').innerHTML +=
             "<tr><td>" +
             t.id + "</td><td>" +
-            t.shelterName + "</td><td>" +
+            t.name + "</td><td>" +
             t.address + "</td><td>" +
             t.city + "</td><td>" +
             `<button type="button" onclick="removeShelter(${t.id})">Delete</button>` +
@@ -191,6 +194,7 @@ function showupdatedshelter(id) {
     shelterIdForUpdate = id;
 }
 
+// ez a resze sajnos nem mukodik mert valamiert prog 3 oran sem mukodott 
 function animalUpdate() {
     document.getElementById('animUpd').style.display = 'none';
     let name = document.getElementById('anim').value;
@@ -212,12 +216,11 @@ function animalUpdate() {
 function adopterUpdate() {
     document.getElementById('adopUpd').style.display = 'none';
     let name = document.getElementById('adop').value;
-    fetch('http://localhost:38088/Adopter/ChangeAdopterAddress/', {
+    fetch('http://localhost:38088/Adopter/ChangeAdopterAddress', {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json', },
         body: JSON.stringify(
             {
-                name: name,
                 address: address,
                 city: city
             }),

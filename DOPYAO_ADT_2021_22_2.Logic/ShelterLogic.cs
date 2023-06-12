@@ -58,7 +58,7 @@ namespace DOPYAO_ADT_2021_22_2.Logic
             Shelter shelter = new Shelter()
             {
                 Id = newShelter.Id,
-                ShelterName = newShelter.ShelterName,
+                Name = newShelter.Name,
                 Address = newShelter.Address,
                 City = newShelter.City,
             };
@@ -80,7 +80,7 @@ namespace DOPYAO_ADT_2021_22_2.Logic
                          select new MostAnimalFromShelters()
                          {
                              Id = grp.Key,
-                             Name = shelterRepo.GimmeOne(grp.Key).ShelterName,
+                             Name = shelterRepo.GimmeOne(grp.Key).Name,
                              Counter = counting,
                          };
 
@@ -96,7 +96,7 @@ namespace DOPYAO_ADT_2021_22_2.Logic
                          where animal.Specie == "Dog"
                          select new DogShelter()
                          {
-                             Name = shelter.ShelterName,
+                             Name = shelter.Name,
                              AnimalName = animal.Name,
                          };
 
@@ -108,7 +108,7 @@ namespace DOPYAO_ADT_2021_22_2.Logic
             var query6 = from shelter in shelterRepo.GimmeAll().ToList()
                          select new ShelterNames()
                          {
-                             Name = shelter.ShelterName,
+                             Name = shelter.Name,
                              Address = shelter.Address,
                              City = shelter.City
                          };

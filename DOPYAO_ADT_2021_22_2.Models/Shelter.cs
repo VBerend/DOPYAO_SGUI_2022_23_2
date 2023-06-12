@@ -18,7 +18,7 @@ namespace DOPYAO_ADT_2021_22_2.Models
 
 		[MaxLength(100)]
 		[Required]
-		public string ShelterName { get; set; }
+		public string Name { get; set; }
 
 		[MaxLength(100)]
 		[Required]
@@ -39,7 +39,7 @@ namespace DOPYAO_ADT_2021_22_2.Models
 
 		public override string ToString()
 		{
-			return $"\n{this.Id} {this.ShelterName} - {this.City} - {this.Address} - {this.Animals}";
+			return $"\n{this.Id} {this.Name} - {this.City} - {this.Address} - {this.Animals}";
 		}
 
 	}

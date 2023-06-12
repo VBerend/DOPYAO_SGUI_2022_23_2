@@ -31,14 +31,14 @@ namespace DOPYAO_ADT_2021_22_2.Endpoint.Controller
         {
             return shelterLogic.GetOneShelter(id);
         }
+
         [HttpPost]
         public Shelter InsertNewShelter([FromBody] Shelter newShelter)
         {
             return shelterLogic.InsertNewShelter(newShelter);
         }
 
-        [Route("DeleteShelter/{id}")]
-        [HttpDelete]
+        [HttpDelete("{id}")]
         public void DeleteShelter(int id)
         {
             shelterLogic.DeleteShelter(id);

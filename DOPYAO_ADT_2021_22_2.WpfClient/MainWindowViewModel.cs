@@ -68,7 +68,7 @@ namespace DOPYAO_ADT_2021_22_2.WpfClient
 						Address = value.Address,
 						City = value.City,
 						Id = value.Id,
-						ShelterName = value.ShelterName,
+						Name = value.Name,
 					};
 
 					OnPropertyChanged();
@@ -161,7 +161,7 @@ namespace DOPYAO_ADT_2021_22_2.WpfClient
 						Animals = ChosenShelter.Animals,
 						City = ChosenShelter.City,
 						Id = ChosenShelter.Id,
-						ShelterName = ChosenShelter.ShelterName
+						Name = ChosenShelter.Name
 					});
 				});
 

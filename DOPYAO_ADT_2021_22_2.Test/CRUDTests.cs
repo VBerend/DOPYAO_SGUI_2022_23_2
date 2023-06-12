@@ -20,7 +20,7 @@ namespace DOPYAO_ADT_2021_22_2.Test
             Mock<IAnimalRepository> mockedAnimalRepo = new Mock<IAnimalRepository>(MockBehavior.Loose);
             AdopterLogic adopterLogic = new AdopterLogic(mockedAdopterRepo.Object, mockedAnimalRepo.Object);
             mockedAdopterRepo.Setup(repo => repo.Insert(It.IsAny<Adopter>()));
-            adopterLogic.InsertNewAdopter("Teszt Elek", "Csudapest", "Main street 42.", false);
+           // adopterLogic.InsertNewAdopter("Teszt Elek", "Csudapest", "Main street 42.", false);
             mockedAdopterRepo.Verify(repo => repo.Insert(It.IsAny<Adopter>()), Times.Once);
         }
 
@@ -41,7 +41,7 @@ namespace DOPYAO_ADT_2021_22_2.Test
             Mock<IAnimalRepository> mockedAnimalRepo = new Mock<IAnimalRepository>(MockBehavior.Loose);
             ShelterLogic shelterLogic = new ShelterLogic(mockedShelterRepo.Object, mockedAnimalRepo.Object);
             mockedShelterRepo.Setup(repo => repo.Insert(It.IsAny<Shelter>()));
-            shelterLogic.InsertNewShelter("Homeless Kitty Network", "Csudapest", "Other Street 19.");
+          //  shelterLogic.InsertNewShelter("Homeless Kitty Network", "Csudapest", "Other Street 19.");
             mockedShelterRepo.Verify(repo => repo.Insert(It.IsAny<Shelter>()), Times.Once);
         }
 
@@ -118,10 +118,10 @@ namespace DOPYAO_ADT_2021_22_2.Test
         #region Fakes
         private IQueryable<Adopter> FakeAdopters()
         {
-            Shelter shelter1 = new Shelter() { Id = 1, ShelterName = "Seattle Animal Shelter", City = "Seattle", Address = "2061 15Th Ave" };
-            Shelter shelter2 = new Shelter() { Id = 2, ShelterName = "Motley Zoo Animal Rescue", City = "Woodinville", Address = "13132 NE 177th PI" };
-            Shelter shelter3 = new Shelter() { Id = 3, ShelterName = "Homward Pet Adoption Center", City = "Redmond", Address = "16725 Cleveland St" };
-            Shelter shelter4 = new Shelter() { Id = 4, ShelterName = "South Pacific County Humane Society", City = "Long Beach", Address = "98631 2nd St NE" };
+            Shelter shelter1 = new Shelter() { Id = 1, Name = "Seattle Animal Shelter", City = "Seattle", Address = "2061 15Th Ave" };
+            Shelter shelter2 = new Shelter() { Id = 2, Name = "Motley Zoo Animal Rescue", City = "Woodinville", Address = "13132 NE 177th PI" };
+            Shelter shelter3 = new Shelter() { Id = 3, Name = "Homward Pet Adoption Center", City = "Redmond", Address = "16725 Cleveland St" };
+            Shelter shelter4 = new Shelter() { Id = 4, Name = "South Pacific County Humane Society", City = "Long Beach", Address = "98631 2nd St NE" };
 
             Adopter adopter1 = new Adopter() { Id = 1, Name = "Sioned Wilkins", City = "Hobbs", Address = "1393 Reel Avenue", HasKid = true };
             Adopter adopter2 = new Adopter() { Id = 2, Name = "Clive Owens", City = "Portage", Address = " 3113 Blane Street", HasKid = false };
@@ -153,10 +153,10 @@ namespace DOPYAO_ADT_2021_22_2.Test
 
         private IQueryable<Animal> FakeAnimals()
         {
-            Shelter shelter1 = new Shelter() { Id = 1, ShelterName = "Seattle Animal Shelter", City = "Seattle", Address = "2061 15Th Ave" };
-            Shelter shelter2 = new Shelter() { Id = 2, ShelterName = "Motley Zoo Animal Rescue", City = "Woodinville", Address = "13132 NE 177th PI" };
-            Shelter shelter3 = new Shelter() { Id = 3, ShelterName = "Homward Pet Adoption Center", City = "Redmond", Address = "16725 Cleveland St" };
-            Shelter shelter4 = new Shelter() { Id = 4, ShelterName = "South Pacific County Humane Society", City = "Long Beach", Address = "98631 2nd St NE" };
+            Shelter shelter1 = new Shelter() { Id = 1, Name = "Seattle Animal Shelter", City = "Seattle", Address = "2061 15Th Ave" };
+            Shelter shelter2 = new Shelter() { Id = 2, Name = "Motley Zoo Animal Rescue", City = "Woodinville", Address = "13132 NE 177th PI" };
+            Shelter shelter3 = new Shelter() { Id = 3, Name = "Homward Pet Adoption Center", City = "Redmond", Address = "16725 Cleveland St" };
+            Shelter shelter4 = new Shelter() { Id = 4, Name = "South Pacific County Humane Society", City = "Long Beach", Address = "98631 2nd St NE" };
 
             Adopter adopter1 = new Adopter() { Id = 1, Name = "Sioned Wilkins", City = "Hobbs", Address = "1393 Reel Avenue", HasKid = true };
             Adopter adopter2 = new Adopter() { Id = 2, Name = "Clive Owens", City = "Portage", Address = " 3113 Blane Street", HasKid = false };
@@ -194,10 +194,10 @@ namespace DOPYAO_ADT_2021_22_2.Test
 
         private IQueryable<Shelter> FakeShelters()
         {
-            Shelter shelter1 = new Shelter() { Id = 1, ShelterName = "Seattle Animal Shelter", City = "Seattle", Address = "2061 15Th Ave" };
-            Shelter shelter2 = new Shelter() { Id = 2, ShelterName = "Motley Zoo Animal Rescue", City = "Woodinville", Address = "13132 NE 177th PI" };
-            Shelter shelter3 = new Shelter() { Id = 3, ShelterName = "Homward Pet Adoption Center", City = "Redmond", Address = "16725 Cleveland St" };
-            Shelter shelter4 = new Shelter() { Id = 4, ShelterName = "South Pacific County Humane Society", City = "Long Beach", Address = "98631 2nd St NE" };
+            Shelter shelter1 = new Shelter() { Id = 1, Name = "Seattle Animal Shelter", City = "Seattle", Address = "2061 15Th Ave" };
+            Shelter shelter2 = new Shelter() { Id = 2, Name = "Motley Zoo Animal Rescue", City = "Woodinville", Address = "13132 NE 177th PI" };
+            Shelter shelter3 = new Shelter() { Id = 3, Name = "Homward Pet Adoption Center", City = "Redmond", Address = "16725 Cleveland St" };
+            Shelter shelter4 = new Shelter() { Id = 4, Name = "South Pacific County Humane Society", City = "Long Beach", Address = "98631 2nd St NE" };
 
             Adopter adopter1 = new Adopter() { Id = 1, Name = "Sioned Wilkins", City = "Hobbs", Address = "1393 Reel Avenue", HasKid = true };
             Adopter adopter2 = new Adopter() { Id = 2, Name = "Clive Owens", City = "Portage", Address = " 3113 Blane Street", HasKid = false };

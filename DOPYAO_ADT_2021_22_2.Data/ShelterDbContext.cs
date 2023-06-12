@@ -25,10 +25,10 @@ namespace DOPYAO_ADT_2021_22_2.Data
 		protected override void OnModelCreating(ModelBuilder modelBuilder)
 		{
 			// creating test objects
-			Shelter shelter1 = new Shelter() { Id = 1, ShelterName = "Tetovált Állatmentők", City = "Budapest", Address = "Szófia utca, 1068" };
-			Shelter shelter2 = new Shelter() { Id = 2, ShelterName = "Herosz", City = "Budapest", Address = "Brassói u. sarok, 1223" };
-			Shelter shelter3 = new Shelter() { Id = 3, ShelterName = "Állatmentő Sereg", City = "Budapest", Address = "Nagymező u. 8, 1065" };
-			Shelter shelter4 = new Shelter() { Id = 4, ShelterName = "Rex Dog Home Foundation", City = "Budapest", Address = "Óceánárok u. 33, 1048" };
+			Shelter shelter1 = new Shelter() { Id = 1, Name = "Tetovált Állatmentők", City = "Budapest", Address = "Szófia utca, 1068" };
+			Shelter shelter2 = new Shelter() { Id = 2, Name = "Herosz", City = "Budapest", Address = "Brassói u. sarok, 1223" };
+			Shelter shelter3 = new Shelter() { Id = 3, Name = "Állatmentő Sereg", City = "Budapest", Address = "Nagymező u. 8, 1065" };
+			Shelter shelter4 = new Shelter() { Id = 4, Name = "Rex Dog Home Foundation", City = "Budapest", Address = "Óceánárok u. 33, 1048" };
 
 			Adopter adopter1 = new Adopter() { Id = 1, Name = "Keanu Reeves", City = "Budapest", Address = "Dob utca 13", HasKid = true };
 			Adopter adopter2 = new Adopter() { Id = 2, Name = "Mekk Elek", City = "Kaposvár", Address = "Bécsi út 96", HasKid = false };

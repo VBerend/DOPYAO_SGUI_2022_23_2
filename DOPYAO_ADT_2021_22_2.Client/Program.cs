@@ -212,7 +212,7 @@ namespace DOPYAO_ADT_2021_22_2.Client
 				try
 				{
 					Console.WriteLine("ADOPTER LIST");
-					var adopters = rest.Get<Adopter>("adopter/GetAllAdopters");
+					var adopters = rest.Get<Adopter>("adopter");
 					adopters.ForEach(x => Console.WriteLine(x.ToString()));
 					Console.WriteLine("\n Press any button to continue");
 					Console.ReadLine();
@@ -272,7 +272,7 @@ namespace DOPYAO_ADT_2021_22_2.Client
 			{
 				Console.WriteLine("PLEASE TELL ME WHICH ADOPTER DO YOU WANNA DELETE [id] (FROM EXISTENCE)");
 				int id = int.Parse(Console.ReadLine());
-				rest.Delete(id, $"adopter/DeleteAdopter/{id}");
+				rest.Delete(id,"adopter");
 				Console.WriteLine("ADOPTER DELETED, MAYBE THE ARCHIVE ARE INCOMPLETE ");
 				Console.WriteLine("\n Press any button to continue");
 				Console.ReadLine();
@@ -369,8 +369,9 @@ namespace DOPYAO_ADT_2021_22_2.Client
 				string city = Console.ReadLine();
 				Console.WriteLine("TYPE THE SPECIE!");
 				string address = Console.ReadLine();
-				rest.Post(new Shelter { ShelterName = sheltername, City = city, Address = address, }, "shelter");
+				Shelter shelter = new Shelter() { Name = sheltername, City = city, Address = address, };
 				Console.WriteLine("\n:: SHELTER CREATED ::");
+				rest.Post<Shelter>(shelter, "shelter");
 				Console.ReadKey();
 			}
 			catch (Exception e)

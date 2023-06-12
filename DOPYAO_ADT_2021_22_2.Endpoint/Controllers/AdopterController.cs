@@ -30,22 +30,18 @@ namespace DOPYAO_ADT_2021_22_2.Endpoint.Controller
         {
             return adopterLogic.GetOneAdopter(id);
         }
-        [Route("InsertNewAdopter/{adoptername}/{city}/{address}/{haskid}")]
         [HttpPost]
         public Adopter Create([FromBody] Adopter newAdopter)
         {
             return adopterLogic.InsertNewAdopter(newAdopter);
         }
-
-        [Route("DeleteAdopter/{id}")]
-        [HttpDelete]
+        [HttpDelete("{id}")]
         public void DeleteAdopter(int id)
         {
             adopterLogic.DeleteAdopter(id);
         }
 
-        [Route("ChangeAdopterAddress/{id}/{newCity}/{newAddress}")]
-        [HttpPut]
+        [HttpPut("ChangeAdopterAddress/{id}/{newCity}/{newAddress}")]
         public void ChangeAdopterAddress(int id, string newCity, string newAddress)
         {
             adopterLogic.ChangeAdopterAddress(id, newCity, newAddress);

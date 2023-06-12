@@ -49,6 +49,7 @@
 
     <div id="adopUpd">
         <label>Address</label>
+        <label>City</label>
         <input type="text" id="adop"/>
         <button type="button" onclick="adopterUpdate()">Update Adopter</button>
     </div>
@@ -69,12 +70,12 @@
     <h3>Shelters</h3>
 
     <div id="shel">
-        <label>Shelter Name</label>
-        <input type="text" name="ShelterName" />
-        <label>City</label>
-        <input type="text" name="city" />
+        <label>Name</label>
+        <input type="text" name="name" />
         <label>Address</label>
         <input type="text" name="address" />
+        <label>City</label>
+        <input type="text" name="city" />
         <button type="button" onclick="createShelter()">Add Shelter</button>
     </div>
 
@@ -90,13 +91,12 @@
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Name</th>
-                <th>Age</th>
-                <th>Body type</th>
-                <th>Gender</th>
+                <th>ShelterName</th>
+                <th>Address</th>
+                <th>City</th>
             </tr>
         </thead>
-        <tbody id="resultareaAnimal"></tbody>
+        <tbody id="resultareashelter"></tbody>
     </table>
 
 

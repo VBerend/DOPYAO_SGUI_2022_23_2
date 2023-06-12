@@ -40,6 +40,13 @@ namespace DOPYAO_ADT_2021_22_2.Endpoint
 				app.UseDeveloperExceptionPage();
 			}
 
+			app.UseCors(x => x
+			 .AllowCredentials()
+			 .AllowAnyMethod()
+			 .AllowAnyHeader()
+			 .WithOrigins("http://localhost:58697"));
+
+
 			app.UseRouting();
 
 			app.UseEndpoints(endpoints =>
