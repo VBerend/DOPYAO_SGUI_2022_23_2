@@ -9,10 +9,10 @@ Ezeket a metódusokat használtam.
 
 Js clientben a delete működik, viszont a create-nél van valami hiba, hogy requirednek kéri a mezőket(ezt tudom, hogy miért és nem baj), viszont amikor adok meg adatot, beleírom a kivánt szöveget vagy adatot akkor sem fogadja el és nem hozza létre a kért entitást.
 
-Display funkciónal én megjelenítem mind a három táblán Adopter mint örökbefogadó, Shelter mint menhely és Animal mint örökbefogadott/fogadható állatok.
+Display funkciónál megjelenítem mind a három táblát Adopter mint örökbefogadó, Shelter mint menhely és Animal mint örökbefogadott/fogadható állatok.
 
 GetData-val mind a három táblából lekérem a kivánt adatokat.
 
-Animal-t nem lehet törölni mert az animalöket használom kapcsoló táblának, ők kötik össze a menhelyeket és az örökbefogadókat.
+Animal-t nem lehet törölni mert az animal-oket használom kapcsoló táblának, ők kötik össze a menhelyeket és az örökbefogadókat.
 
 Találtam még korábban egy hibát, hogy többszöri elindítás után error-t dob a backend, hogy létezik már adopter a Db-ben, ezt kilehet azzal küszöbölni, hogy tovább engeded a programot, és utána egy ráfrissítéssel, megjelennek az adatok.
