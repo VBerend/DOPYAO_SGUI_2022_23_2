@@ -2,7 +2,6 @@
 
 README-t általában telepítési útmutatásra szokták használni, de most ide írom a leírást.
 
-Projekt leírás
 
 Haladó fejlesztés technikán készített projekt állapotát használtam, viszont ebben sajnos a update nincs benne, mert azt régen nem csináltam meg.
 
